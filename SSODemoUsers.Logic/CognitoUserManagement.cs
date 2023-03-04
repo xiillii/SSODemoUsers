@@ -35,7 +35,7 @@ namespace SSODemoUsers.Logic
             var adminCreateUserRequest = new AdminCreateUserRequest
             {
                 Username = username,
-                TemporaryPassword = password,
+                TemporaryPassword = password, 
                 UserPoolId = userPoolId,
                 UserAttributes = attributeTypes
             };
@@ -50,7 +50,7 @@ namespace SSODemoUsers.Logic
                 {
                     new AttributeType()
                     {
-                        Name = "email_verifies", Value = "true"
+                        Name = "email_verified", Value = "true"
                     }
                 }
             };
@@ -146,6 +146,17 @@ namespace SSODemoUsers.Logic
             };
 
             await _adminAmazonCognitoIdentityProviderClient.AdminDisableUserAsync(adminDisableUserRequest);
+        }
+
+        public async Task AdminEnableUserAsync(string username, string userPoolId)
+        {
+            var adminEnableUserRequest = new AdminEnableUserRequest()
+            {
+                UserPoolId = userPoolId,
+                Username = username
+            };
+
+            await _adminAmazonCognitoIdentityProviderClient.AdminEnableUserAsync(adminEnableUserRequest);
         }
 
         public async Task AdminDeleteUserAsync(string username, string userPoolId)
