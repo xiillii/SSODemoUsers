@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Amazon.Extensions.CognitoAuthentication" Version="2.3.0" />
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.4" />
+  </ItemGroup>
+
 </Project>
